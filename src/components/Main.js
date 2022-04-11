@@ -19,7 +19,7 @@ function Main(props) {
     .catch((err) => {
       alert(err);
     });
-  });
+  }, []);
 
   React.useEffect(() => {
     api.getCards()
@@ -35,7 +35,7 @@ function Main(props) {
     <main>
       <section className="profile">
       <div className="profile__avatar-group">
-        <img className="profile__avatar" src={userAvatar} alt="Ваш аватар" />
+        {userAvatar && (<img className="profile__avatar" src={userAvatar} alt="Ваш аватар" />)}
         <button className="profile__avatar-button" onClick={props.onEditAvatar}></button>
       </div>
       <div className="profile__editor">
@@ -50,7 +50,7 @@ function Main(props) {
       <ul className="elements">
         {
           cards.map((card) => (
-              <Card key={card._id} card={card} onCardClick={props.onCardClick} onClose={props.onClose} isOpen={props.isOpen} selectedCard={props.selectedCard} />
+              <Card key={card._id} card={card} onCardClick={props.onCardClick} />
           ))
         }
       </ul>
