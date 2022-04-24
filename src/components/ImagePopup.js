@@ -1,5 +1,5 @@
 function ImagePopup(props) {
-  return(
+  return (
     <div className={`popup popup_type_large-image ${props.isOpen}`}>
       <div className="popup__large-image-container" id="large-image-container">
         <img className="popup__large-image" src={props.card.link} alt={props.card.name} />

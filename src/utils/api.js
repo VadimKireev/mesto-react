@@ -81,27 +81,39 @@ class Api {
     });
   }
 
-  putLike(id) {
-    return fetch(`${this._cardsUrl}${id}/likes`, {
-      method: 'PUT',
-      headers: this._headers
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject('Не удалось поставить лайк')
-    });
-  }
+  // putLike(id) {
+  //   return fetch(`${this._cardsUrl}${id}/likes`, {
+  //     method: 'PUT',
+  //     headers: this._headers
+  //   }).then((res) => {
+  //     if (res.ok) {
+  //       return res.json();
+  //     }
+  //     return Promise.reject('Не удалось поставить лайк')
+  //   });
+  // }
 
-  deleteLike(id) {
+  // deleteLike(id) {
+  //   return fetch(`${this._cardsUrl}${id}/likes`, {
+  //     method: 'DELETE',
+  //     headers: this._headers
+  //   }).then((res) => {
+  //     if (res.ok) {
+  //       return res.json();
+  //     }
+  //     return Promise.reject('Не удалось убрать лайк')
+  //   });
+  // }
+
+  changeLikeCardStatus(id, isLiked) {
     return fetch(`${this._cardsUrl}${id}/likes`, {
-      method: 'DELETE',
+      method: isLiked ? 'DELETE' : 'PUT',
       headers: this._headers
     }).then((res) => {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject('Не удалось убрать лайк')
+      return Promise.reject('Не удалось поставить или удалить лайк')
     });
   }
 }

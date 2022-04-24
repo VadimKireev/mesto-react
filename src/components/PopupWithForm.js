@@ -3,7 +3,7 @@ function PopupWithForm(props) {
       <div className={`popup ${props.isOpen}`} id={`popup-${props.name}`}>
         <div className="popup__container" id={`${props.name}-container`}>
           <h2 className="popup__title">{props.title}</h2>
-          <form className="popup__form" name={`${props.name}-form`} id={`${props.name}-form`} noValidate>
+          <form className="popup__form" name={`${props.name}-form`} id={`${props.name}-form`} onSubmit={props.onSubmit} noValidate>
             {props.children}
             <button className="popup__submit-button" type="submit">{props.buttonText}</button>
           </form>

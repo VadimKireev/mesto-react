@@ -14,3 +14,11 @@
 .element__trash-button:hover {
   opacity: .6;
 }
+
+.element__trash-button_visible {
+  visibility: visible;
+}
+
+.element__trash-button_hidden {
+  visibility: hidden;
+}
